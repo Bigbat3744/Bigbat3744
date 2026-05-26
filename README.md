@@ -44,4 +44,4 @@ Serverless coding challenge platform with a public API and S3-hosted frontend. B
 ## 📫 Connect
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/olaitan-soyoye-5a91b6b9)
-- 📧 solisamue@gmail.com
+- 📧 soyoyeolaitan@yahoo.com
