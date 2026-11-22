@@ -1,6 +1,6 @@
 # Hi, I'm Olaitan Soyoye 👋
 
-**Cloud engineer focused on AWS, Terraform and Python** · based in the UK · Open looking for  Cloud Infrastructure Engineer role
+**AWS Certified Solutions Architect – Associate** · Cloud engineer (AWS, Terraform, Python) · Scotland, UK · Open to Cloud, Platform and DevOps Engineer roles
 
 I build and run cloud infrastructure in my own AWS account, and I work the way teams do: everything in Terraform, every change through a pull request with automated checks, least-privilege IAM, monitoring with real alarms, and honest write-ups of what broke and how I fixed it.
 
