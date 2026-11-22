@@ -1,43 +1,49 @@
 # Hi, I'm Olaitan Soyoye 👋
 
-**Cloud & DevOps Engineer** | AWS · Azure · Terraform · Python
+**Cloud engineer focused on AWS, Terraform and Python** · based in the UK · Open looking for  Cloud Infrastructure Engineer role
 
-I build production-grade cloud infrastructure — serverless platforms, multi-cloud deployments, and automation pipelines. I care about clean architecture, Infrastructure as Code, and solving real engineering problems.
+I build and run cloud infrastructure in my own AWS account, and I work the way teams do: everything in Terraform, every change through a pull request with automated checks, least-privilege IAM, monitoring with real alarms, and honest write-ups of what broke and how I fixed it.
 
 ---
 
-## 🚀 Featured Projects
+## ⭐ Featured project
 
 ### ☁️ [CloudOps Insight Hub](https://github.com/Bigbat3744/cloudops-insight-hub)
-Serverless AWS cost monitoring platform. Automated daily cost collection via EventBridge → Lambda → DynamoDB, with a REST API and interactive Chart.js dashboard. Fully Terraform-managed.
+Serverless AWS cost monitoring. A scheduled Lambda collects spend by service from Cost Explorer into DynamoDB, and a separate read-only Lambda serves it through a throttled API Gateway HTTP API.
 
-`AWS Lambda` `DynamoDB` `API Gateway` `EventBridge` `Terraform` `Python`
+- **Security:** separate collector and reader roles scoped to exact ARNs, proven with `iam simulate-principal-policy`; input validation and safe error responses
+- **Monitoring:** 5 CloudWatch alarms → SNS email, including one that detects a missed daily run; a dashboard, access logs and X-Ray
+- **CI/CD:** GitHub Actions signs in to AWS with **OIDC (no stored keys)**; `fmt`, `validate`, `tflint`, a blocking Checkov scan and `terraform plan` on every PR
+- **Troubleshooting:** load-test 503s diagnosed from metrics as the Lambda concurrency limit; incidents documented in the README
 
----
-
-### 🌐 [Multi-Cloud Job Aggregator](https://github.com/Bigbat3744/multi-cloud-devops-job-aggregator)
-Production-grade job aggregation platform spanning Azure and AWS. FastAPI backend on Azure Container Apps, DynamoDB storage, S3 static frontend. Includes CORS resolution, revision management, and multi-cloud IAM.
-
-**[Live Demo →](http://job-aggregator-frontend.s3-website-eu-west-1.amazonaws.com)**
-
-`Azure Container Apps` `AWS DynamoDB` `FastAPI` `S3` `Docker` `Python`
+`Terraform` `Lambda` `DynamoDB` `API Gateway` `EventBridge` `CloudWatch` `SNS` `X-Ray` `IAM` `GitHub Actions` `Python`
 
 ---
+
+## 🧱 More projects
+
+### 🌐 [Terraform VPC Lab](https://github.com/Bigbat3744/terraform-vpc-lab)
+A two-tier AWS network in Terraform: public and private subnets with a bastion pattern. SSH and HTTP are restricted to a single IP, the private tier only accepts traffic from the web tier's security group, outbound rules are explicit and IMDSv2 is required. It uses no NAT gateway to keep cost low, and `terraform destroy` removes everything.
+
+`Terraform` `VPC` `EC2` `Security Groups` `IAM`
+
+### 🔀 [Multi-Cloud Job Aggregator](https://github.com/Bigbat3744/multi-cloud-devops-job-aggregator)
+A FastAPI backend on Azure Container Apps with DynamoDB storage and an S3 frontend, deployed through a GitHub Actions pipeline with a staging → health check → production gate. The Azure backend was decommissioned when the trial credits expired, and the full stack runs locally.
+
+`Azure Container Apps` `Docker` `FastAPI` `DynamoDB` `S3` `GitHub Actions`
 
 ### 🧠 [Daily Challenge Generator](https://github.com/Bigbat3744/daily-challenge-generator)
-Serverless coding challenge platform with a public API and S3-hosted frontend. Built entirely with Terraform — Lambda, API Gateway, DynamoDB. Documented real IAM, CORS, and state management challenges end-to-end.
+A serverless coding-challenge API (API Gateway REST API, Lambda, DynamoDB) with an S3-hosted frontend, built with Terraform. The README documents the IAM, CORS and state-management problems I hit and how I solved them.
 
-**[Live Demo →](http://daily-challenge-frontend-f69a1f06.s3-website.eu-west-2.amazonaws.com)** | **[API →](https://rayofvvjz4.execute-api.eu-west-2.amazonaws.com/prod/challenge)**
-
-`AWS Lambda` `API Gateway` `DynamoDB` `Terraform` `Python` `GitHub Actions`
+`Lambda` `API Gateway` `DynamoDB` `S3` `Terraform`
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tools I use
 
-| Cloud | IaC | Backend | Frontend | DevOps |
-|-------|-----|---------|----------|--------|
-| AWS, Azure | Terraform | Python, FastAPI | HTML/CSS/JS | Docker, GitHub Actions |
+| Cloud | IaC & CI | Observability | Languages |
+|---|---|---|---|
+| AWS (primary), Azure | Terraform, GitHub Actions, OIDC, tflint, Checkov | CloudWatch, X-Ray, SNS | Python, Bash |
 
 ---
 
